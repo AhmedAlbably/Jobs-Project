@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo.jpeg";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="flex h-20 items-center justify-between">
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
-              <img className="h-10 w-auto" src={logo} alt="React Jobs" />
+              <img className="h-10 w-10 rounded-full" src={logo} alt="React Jobs" />
               <span className="hidden md:block text-white text-2xl font-bold ml-2">
                 React Jobs
               </span>

@@ -57,6 +57,7 @@ const ShowJob = ({ deleteJob }) => {
     try {
       let res = await axios.delete(`http://localhost:3001/jobs/${jobId}`);
       if (res.status == 200) {
+        console.log(res.data) 
         toast.success("Job Deleted successfully");
         navigate("/jobs");
       }
