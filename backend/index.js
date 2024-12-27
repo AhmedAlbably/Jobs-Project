@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const port = 3001;
+const port = 8080 || process.env.PORT;
 const Job = require("./models/Job");
 const LastJobId = require("./models/LastJobId");
 
