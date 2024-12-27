@@ -23,7 +23,7 @@ const EditJobPage = ({ updateJobSubmit }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/jobs/${id}`)
+      .get(`https://jobs-project-rho.vercel.app//jobs/${id}`)
       .then((response) => {
         setJob(response.data);
         setTitle(response.data.title);
@@ -68,8 +68,11 @@ const EditJobPage = ({ updateJobSubmit }) => {
       },
     };
     try {
-      let res = await axios.put(`http://localhost:3001/jobs/${id}`, updatedJob);
-      if(res.status == 200) {
+      let res = await axios.put(
+        `https://jobs-project-rho.vercel.app//jobs/${id}`,
+        updatedJob
+      );
+      if (res.status == 200) {
         toast.success("Job updated successfully");
         navigate("/jobs");
       }

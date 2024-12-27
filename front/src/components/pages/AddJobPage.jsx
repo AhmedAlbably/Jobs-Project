@@ -35,14 +35,17 @@ const AddJobPage = (/* { addJobSubmit } */) => {
     /*     addJobSubmit(newJob); */
 
     try {
-      let res = await axios.post("http://localhost:3001/jobs",newJob);
+      let res = await axios.post(
+        "https://jobs-project-rho.vercel.app//jobs",
+        newJob
+      );
 
       if (res.status == 201) {
         toast.success("Job added successfully");
         navigate("/jobs");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 

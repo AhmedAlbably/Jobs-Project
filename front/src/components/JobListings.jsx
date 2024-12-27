@@ -6,18 +6,20 @@ const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const apiUrl = isHome ? ('http://localhost:3001/jobs?_limit=3') : ('http://localhost:3001/jobs')
+  const apiUrl = isHome
+    ? "https://jobs-project-rho.vercel.app//jobs?_limit=3"
+    : "https://jobs-project-rho.vercel.app//jobs";
   useEffect(() => {
     axios
-        .get(apiUrl)
-        .then((response) => {
-          setJobs(response.data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  }, [apiUrl])
+      .get(apiUrl)
+      .then((response) => {
+        setJobs(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [apiUrl]);
 
   return (
     <section className="bg-blue-50 px-4 py-10">
