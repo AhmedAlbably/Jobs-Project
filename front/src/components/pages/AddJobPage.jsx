@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "axios";
 
-
-const AddJobPage = ({ addJobSubmit }) => {
+const AddJobPage = (/* { addJobSubmit } */) => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Full-Time");
   const [location, setLocation] = useState("");
@@ -16,7 +16,7 @@ const AddJobPage = ({ addJobSubmit }) => {
 
   const navigate = useNavigate();
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
 
     const newJob = {
@@ -32,9 +32,18 @@ const AddJobPage = ({ addJobSubmit }) => {
         contactPhone,
       },
     };
-    addJobSubmit(newJob);
-    toast.success("Job added successfully");
-    return navigate("/jobs");
+    /*     addJobSubmit(newJob); */
+
+    try {
+      let res = await axios.post("http://localhost:3001/jobs",newJob);
+
+      if (res.status == 201) {
+        toast.success("Job added successfully");
+        navigate("/jobs");
+      }
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (

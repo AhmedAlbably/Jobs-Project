@@ -6,7 +6,7 @@ const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const apiUrl = isHome ? ('/api/jobs?_limit=3') : ('/api/jobs')
+  const apiUrl = isHome ? ('http://localhost:3001/jobs?_limit=3') : ('http://localhost:3001/jobs')
   useEffect(() => {
     axios
         .get(apiUrl)
@@ -29,7 +29,7 @@ const JobListings = ({ isHome = false }) => {
           {loading ? (
             <Spinner loading={loading} />
           ) : (
-            jobs.map((job) => <JobListing key={job.id} job={job} />)
+            jobs.map((job) => <JobListing key={job._id} job={job} />)
           )}
         </div>
       </div>

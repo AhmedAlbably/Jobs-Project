@@ -23,7 +23,7 @@ const EditJobPage = ({ updateJobSubmit }) => {
 
   useEffect(() => {
     axios
-      .get(`/api/jobs/${id}`)
+      .get(`http://localhost:3001/jobs/${id}`)
       .then((response) => {
         setJob(response.data);
         setTitle(response.data.title);
@@ -67,11 +67,16 @@ const EditJobPage = ({ updateJobSubmit }) => {
         contactPhone,
       },
     };
-    await updateJobSubmit(id, updatedJob);
-    toast.success("Job updated successfully");
-    navigate("/jobs");
+    try {
+      let res = await axios.put(`http://localhost:3001/jobs/${id}`, updatedJob);
+      if(res.status == 200) {
+        toast.success("Job updated successfully");
+        navigate("/jobs");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
-
 
   return (
     <section className="bg-indigo-50">
