@@ -15,7 +15,7 @@ const ShowJob = ({ deleteJob }) => {
 
   useEffect(() => {
     axios
-      .get(`https://jobs-project-rho.vercel.app//jobs/${id}`)
+      .get(`https://jobs-project-rho.vercel.app/jobs/${id}`)
       .then((response) => {
         setJob(response.data);
       })
@@ -56,7 +56,7 @@ const ShowJob = ({ deleteJob }) => {
 
     try {
       let res = await axios.delete(
-        `https://jobs-project-rho.vercel.app//jobs/${jobId}`
+        `https://jobs-project-rho.vercel.app/jobs/${jobId}`
       );
       if (res.status == 200) {
         console.log(res.data);

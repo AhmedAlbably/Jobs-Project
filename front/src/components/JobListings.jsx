@@ -7,8 +7,8 @@ const JobListings = ({ isHome = false }) => {
   const [loading, setLoading] = useState(false);
 
   const apiUrl = isHome
-    ? "https://jobs-project-rho.vercel.app//jobs?_limit=3"
-    : "https://jobs-project-rho.vercel.app//jobs";
+    ? "https://jobs-project-rho.vercel.app/jobs?_limit=3"
+    : "https://jobs-project-rho.vercel.app/jobs";
   useEffect(() => {
     axios
       .get(apiUrl)

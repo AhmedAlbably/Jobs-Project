@@ -36,7 +36,7 @@ const AddJobPage = (/* { addJobSubmit } */) => {
 
     try {
       let res = await axios.post(
-        "https://jobs-project-rho.vercel.app//jobs",
+        "https://jobs-project-rho.vercel.app/jobs",
         newJob
       );
 
